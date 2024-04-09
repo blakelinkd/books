@@ -14,8 +14,12 @@
             <ul>
                 <li><a href="{% url 'index' %}">Home</a></li>
                 <li><a href="{% url 'accounts:login' %}">Log In</a></li>
+                {% if not user.is_authenticated %}
                 <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+                {% else %}
+                <a href="{% url 'accounts:logout' %}">Logout</a>
                 
+                {% endif %}
                 <!-- Add more navigation links here -->
             </ul>
         </nav>
@@ -25,7 +29,7 @@
         {% if user.is_authenticated %}
   <p>Hello, {{ user.username }}!</p>
 {% else %}
-  <p>Hello, guest! Please <a href="{% url 'login' %}">log in</a>.</p>
+  <p>Hello, guest! Please <a href="{% url 'accounts:login' %}">log in</a>.</p>
 {% endif %}
 
         {% block content %}
