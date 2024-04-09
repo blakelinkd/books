@@ -21,5 +21,5 @@ from books.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('signup/', include('signup.urls', namespace='signup')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
 ]

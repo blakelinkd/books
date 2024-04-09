@@ -13,13 +13,21 @@
         <nav>
             <ul>
                 <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'signup:signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'accounts:login' %}">Log In</a></li>
+                <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+                
                 <!-- Add more navigation links here -->
             </ul>
         </nav>
     </header>
 
     <main>
+        {% if user.is_authenticated %}
+  <p>Hello, {{ user.username }}!</p>
+{% else %}
+  <p>Hello, guest! Please <a href="{% url 'login' %}">log in</a>.</p>
+{% endif %}
+
         {% block content %}
         <!-- Your page-specific content goes here -->
         {% endblock %}
