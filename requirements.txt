@@ -1,0 +1,6 @@
+asgiref==3.8.1
+coverage==7.4.4
+Django==5.0.4
+django-coverage==1.2.4
+sqlparse==0.4.4
+typing_extensions==4.11.0
